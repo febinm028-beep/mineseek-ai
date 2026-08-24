@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #1c2733 #080b10;
+}
+
+html, body {
+  background: #080b10;
+  color: #eaf3f8;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, .font-display {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.font-mono-data {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Signature element: frosted glass shard panel with a clipped icy corner */
+.shard-panel {
+  clip-path: polygon(0 6%, 10% 0, 100% 0, 100% 94%, 90% 100%, 0 100%);
+  background: linear-gradient(160deg, rgba(22,31,44,0.85), rgba(11,16,23,0.9));
+  border: 1px solid rgba(125,211,252,0.14);
+  backdrop-filter: blur(14px);
+}
+
+.shard-panel-sm {
+  clip-path: polygon(0 10%, 14% 0, 100% 0, 100% 90%, 86% 100%, 0 100%);
+}
+
+.glass {
+  background: rgba(17,24,35,0.55);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.frost-text {
+  background: linear-gradient(120deg, #eaf7ff 10%, #7dd3fc 55%, #a5f3fc 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.aurora-bg {
+  background:
+    radial-gradient(ellipse 70% 45% at 20% -10%, rgba(125,211,252,0.16), transparent 60%),
+    radial-gradient(ellipse 55% 40% at 100% 0%, rgba(165,243,252,0.10), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 50% 120%, rgba(11,43,52,0.55), transparent 60%),
+    #080b10;
+}
+
+@keyframes drift {
+  0% { transform: translate3d(0,0,0) scale(1); }
+  50% { transform: translate3d(-2%, 1.5%, 0) scale(1.03); }
+  100% { transform: translate3d(0,0,0) scale(1); }
+}
+
+.drift {
+  animation: drift 18s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, transparent, rgba(125,211,252,0.25), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2.4s ease-in-out infinite;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #080b10;
+}
+::-webkit-scrollbar-thumb {
+  background: #1c2733;
+  border-radius: 8px;
+}
+
+:focus-visible {
+  outline: 2px solid #7dd3fc;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drift, .shimmer {
+    animation: none !important;
+  }
+}
